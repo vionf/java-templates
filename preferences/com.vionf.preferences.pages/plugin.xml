@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.vionf.preferences.pages.pages.MyPreferencePage"
+            id="com.vionf.preferences.pages.preferencepage1"
+            name="MyPreference Page">
+      </page>
+   </extension>
 
 </plugin>
