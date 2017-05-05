@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ThirdParties
+Bundle-SymbolicName: com.vionf.submenu;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: FLO
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

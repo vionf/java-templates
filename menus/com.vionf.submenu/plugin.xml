@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.vionf.submenu.handlers.InstallthirdPartiesHandler"
+            id="com.flo.thirdParties.installCommand"
+            name="Install third parties...">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?before=org.eclipse.equinox.p2.ui.sdk.installationDetails">
+         <command
+               commandId="com.flo.thirdParties.installCommand"
+               icon="icons/feature_obj.gif"
+               label="Install Third Parties..."
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
