@@ -7,7 +7,7 @@
  * Contributors:
  *     Florent Vion
  *******************************************************************************/
-package com.vionf.templates.preferences.pages;
+package com.vionf.preferences.pages.pages;
 
 import org.eclipse.jface.preference.FieldEditor;
 import org.eclipse.jface.preference.StringButtonFieldEditor;

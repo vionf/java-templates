@@ -7,7 +7,7 @@
  * Contributors:
  *     Florent Vion
  *******************************************************************************/
-package com.vionf.templates.variables;
+package com.vionf.preferences.pages.variables;
 
 import org.eclipse.osgi.util.NLS;
 

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pages
+Bundle-SymbolicName: com.vionf.preferences.pages;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.vionf.preferences.pages.Activator
+Bundle-Vendor: FLO
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

@@ -7,7 +7,7 @@
  * Contributors:
  *     Florent Vion
  *******************************************************************************/
-package com.vionf.templates;
+package com.vionf.preferences.pages;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

@@ -7,7 +7,7 @@
  * Contributors:
  *     Florent Vion
  *******************************************************************************/
-package com.vionf.templates.preferences;
+package com.vionf.preferences.pages;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.dialogs.DialogSettings;
@@ -15,7 +15,7 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
-import com.vionf.templates.Activator;
+import com.vionf.preferences.pages.Activator;
 
 /**
  * @author vionf
