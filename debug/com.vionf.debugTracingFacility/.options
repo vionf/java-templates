@@ -1,0 +1,5 @@
+# Debugging options for the com.vionf.debugTracingFacility plugin.
+
+# Turn on debugging for the com.vionf.debugTracingFacility plugin.
+com.vionf.debugTracingFacility/debug=false
+
