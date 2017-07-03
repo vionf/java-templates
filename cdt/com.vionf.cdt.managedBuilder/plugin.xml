@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.vionf.cdt.managedBuilder"
+         point="org.eclipse.cdt.managedbuilder.core.buildDefinitions">
+      <projectType
+            id="com.vionf.cdt.managedBuilder.executable"
+            isAbstract="false"
+            isTest="false"
+            name="Example Executable">
+         <configuration
+               cleanCommand="rm -rf"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.VCErrorParser"
+               id="com.vionf.cdt.managedBuilder.release"
+               name="Test Release">
+            <toolChain
+                  id="com.vionf.cdt.managedBuilder.toolchain.exe"
+                  isAbstract="false"
+                  name="Example Tool-chain exe"
+                  superClass="com.vionf.cdt.managedBuilder.base">
+            </toolChain>
+         </configuration>
+      </projectType>
+      <toolChain
+            id="com.vionf.cdt.managedBuilder.base"
+            isAbstract="false"
+            name="Example Tool-chain">
+         <tool
+               command="ccc"
+               commandLineGenerator="com.vionf.cdt.managedbuilder.CommandLineGenerator"
+               id="com.vionf.cdt.managedBuilder.compiler"
+               isAbstract="false"
+               name="Compiler"
+               outputFlag="-o">
+            <inputType
+                  dependencyCalculator="org.eclipse.cdt.managedbuilder.makegen.internal.DefaultIndexerDependencyCalculator"
+                  dependencyContentType="org.eclipse.cdt.core.cHeader"
+                  id="com.vionf.cdt.managedBuilder.compiler.input"
+                  name="Compiler Input"
+                  primaryInput="true"
+                  sourceContentType="org.eclipse.cdt.core.cSource">
+            </inputType>
+            <outputType
+                  buildVariable="OBJS"
+                  id="com.vionf.cdt.managedBuilder.compiler.output"
+                  name="Compiler Output"
+                  outputs="o"
+                  primaryOutput="true">
+            </outputType>
+            <optionCategory
+                  id="com.vionf.cdt.managedBuilder.compiler.optionCategory"
+                  name="Optimization"
+                  owner="com.vionf.cdt.managedBuilder.compiler">
+            </optionCategory>
+            <option
+                  category="com.vionf.cdt.managedBuilder.compiler.optionCategory"
+                  id="com.vionf.cdt.managedBuilder.compiler.option"
+                  isAbstract="false"
+                  name="useless option"
+                  resourceFilter="all"
+                  valueType="boolean">
+            </option>
+         </tool>
+         <targetPlatform
+               binaryParser="org.eclipse.cdt.core.PE"
+               id="com.vionf.cdt.managedBuilder.targetPlatform"
+               isAbstract="false"
+               name="Example Target Platform">
+         </targetPlatform>
+         <builder
+               command="make"
+               id="com.vionf.cdt.managedBuilder.builder"
+               isAbstract="false"
+               isVariableCaseSensitive="false"
+               name="Example Builder">
+         </builder>
+         <optionCategory
+               id="com.vionf.cdt.managedBuilder.optionCategory"
+               name="General"
+               owner="com.vionf.cdt.managedBuilder.base">
+         </optionCategory>
+         <option
+               category="com.vionf.cdt.managedBuilder.optionCategory"
+               id="com.vionf.cdt.managedBuilder.option"
+               isAbstract="false"
+               name="Non persistent option :"
+               resourceFilter="all"
+               tip="This option is defined directly under the toolchain"
+               valueType="enumerated">
+            <enumeratedOptionValue
+                  command="-mnonPersistent-opt=value1"
+                  id="com.vionf.cdt.managedBuilder.option.value1"
+                  isDefault="true"
+                  name="non persistent value 1">
+            </enumeratedOptionValue>
+            <enumeratedOptionValue
+                  command="-mnonPersistent-opt=value2"
+                  id="com.vionf.cdt.managedBuilder.option.value2"
+                  isDefault="false"
+                  name="non persistent value 2">
+            </enumeratedOptionValue>
+         </option>
+      </toolChain>
+   </extension>
+
+</plugin>
