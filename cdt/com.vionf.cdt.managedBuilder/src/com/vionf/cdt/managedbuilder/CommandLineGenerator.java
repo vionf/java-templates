@@ -14,6 +14,8 @@ import java.util.Arrays;
 
 import org.eclipse.cdt.managedbuilder.core.BuildException;
 import org.eclipse.cdt.managedbuilder.core.IBuildObject;
+import org.eclipse.cdt.managedbuilder.core.IConfiguration;
+import org.eclipse.cdt.managedbuilder.core.IFolderInfo;
 import org.eclipse.cdt.managedbuilder.core.IManagedCommandLineInfo;
 import org.eclipse.cdt.managedbuilder.core.IOption;
 import org.eclipse.cdt.managedbuilder.core.ITool;
@@ -35,19 +37,37 @@ public class CommandLineGenerator extends ManagedCommandLineGenerator {
 		
 		ArrayList<String> listFlags = new ArrayList<String>(Arrays.asList(flags));
 
-		IBuildObject parent = tool.getParent();
-		if (parent instanceof IToolChain) {
-			IToolChain toolchain = (IToolChain)parent;
+		IBuildObject buildObject = tool.getParent();
+		if (buildObject instanceof IToolChain) {
+			IToolChain toolchain = (IToolChain)buildObject;
 			
 			/* Get non persistent option */
-			IOption optionNonPersistent = toolchain.getOptionBySuperClassId("com.vionf.cdt.managedBuilder.option");
-			if (optionNonPersistent != null) {
+			IConfiguration parent = toolchain.getParent();
+			IFolderInfo rootFolderInfo = parent.getRootFolderInfo();
+			IToolChain toolChainParent = rootFolderInfo.getToolChain();
+			IOption optionBySuperClassId = toolChainParent.getOptionBySuperClassId("com.vionf.cdt.managedBuilder.option");
+			if (optionBySuperClassId != null) {
 				try {
-					listFlags.add(0, optionNonPersistent.getCommand(optionNonPersistent.getSelectedEnum()));
+					listFlags.add(0, optionBySuperClassId.getCommand(optionBySuperClassId.getSelectedEnum()));
 				} catch (BuildException e) {
 					e.printStackTrace();
 				}
 			}
+			
+			/* old way but does not work, the getOptionBySuperClassID return null if the folderInfo is not the same between
+			 * the parent option and the new option */
+//			IToolChain superClass = toolchain.getSuperClass();
+//			IOption optionNonPersistent = toolchain.getOptionBySuperClassId("com.vionf.cdt.managedBuilder.option");
+//			if (optionNonPersistent != null) {
+//				try {
+//					String command = optionNonPersistent.getCommand(optionNonPersistent.getSelectedEnum());
+//					listFlags.add(0, optionNonPersistent.getCommand(optionNonPersistent.getSelectedEnum()));
+//				} catch (BuildException e) {
+//					e.printStackTrace();
+//				}
+//			} else {
+//				System.out.println("no option");
+//			}
 		}
 		
 		String[] newFlags = new String[listFlags.size()];
