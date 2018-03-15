@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchDelegates">
+      <launchDelegate
+            delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate"
+            id="com.vionf.cdt.dsf.launch.ExtLaunchDelegate"
+            modes="debug"
+            name="GDB Ext Launch Delegate"
+            sourceLocatorId="org.eclipse.cdt.debug.core.sourceLocator"
+            sourcePathComputerId="org.eclipse.cdt.debug.core.sourcePathComputer"
+            type="org.eclipse.cdt.launch.applicationLaunchType">
+      </launchDelegate>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="com.vionf.cdt.dsf.launch.ExtGdbLaunch"
+            class="com.vionf.cdt.dsf.ExtAdapterFactory">
+         <!--<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementContentProvider"/>
+         <adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IModelProxyFactory"/>
+         <adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IColumnPresentationFactory"/>
+         -->
+         <adapter type="org.eclipse.debug.ui.contexts.ISuspendTrigger"/>
+         <adapter type="org.eclipse.debug.core.commands.ITerminateHandler"/>
+         <!--<adapter type="org.eclipse.cdt.debug.core.model.IConnectHandler"/>
+         <adapter type="org.eclipse.debug.core.commands.IDisconnectHandler"/>
+         <adapter type="org.eclipse.cdt.debug.core.model.IDebugNewExecutableHandler"/>
+         -->
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabs">
+      <tab
+            class="org.eclipse.cdt.dsf.gdb.internal.ui.launching.CMainTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab1"
+            name="Main">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+      </tab>
+      <tab
+            class="org.eclipse.cdt.dsf.gdb.internal.ui.launching.CArgumentsTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab2"
+            name="Arguments">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+         <placement
+               after="com.vionf.cdt.dsf.tab1">
+         </placement>
+      </tab>
+      <tab
+            class="org.eclipse.debug.ui.EnvironmentTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab3"
+            name="Environments">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+         <placement
+               after="com.vionf.cdt.dsf.tab2">
+         </placement>
+      </tab>
+      <tab
+            class="org.eclipse.cdt.dsf.gdb.internal.ui.launching.LocalApplicationCDebuggerTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab4"
+            name="Debugger">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+         <placement
+               after="com.vionf.cdt.dsf.tab3">
+         </placement>
+      </tab>
+      <tab
+            class="org.eclipse.debug.ui.sourcelookup.SourceLookupTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab5"
+            name="Source">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+         <placement
+               after="com.vionf.cdt.dsf.tab4">
+         </placement>
+      </tab>
+      <tab
+            class="org.eclipse.debug.ui.CommonTab"
+            group="org.eclipse.cdt.launch.applicationLaunchTabGroup"
+            id="com.vionf.cdt.dsf.tab6"
+            name="Common">
+         <associatedDelegate
+               delegate="com.vionf.cdt.dsf.launch.ExtLaunchDelegate">
+         </associatedDelegate>
+         <placement
+               after="com.vionf.cdt.dsf.tab5">
+         </placement>
+      </tab>
+   </extension>
+
+</plugin>
